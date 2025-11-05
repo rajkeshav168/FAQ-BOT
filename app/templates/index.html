@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="chat-container">
+    <!-- Header -->
+    <div class="chat-header">
+        <div class="header-content">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" fill="#ff7f50"/>
+                    <text x="15" y="28" fill="white" font-size="20">J</text>
+                </svg>
+            </div>
+            <h1>Jupiter AI Assistant</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+       <!-- Updated Categories Sidebar with Questions from Provided Data Only -->
+<div class="categories-sidebar">
+    <h2>📚 Quick Topics</h2>
+    <div class="categories-accordion">
+        <!-- Account & KYC -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>🏦 Account & KYC</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('What is the Jupiter All-in-1 Savings Account?')">All-in-1 Savings Account</button>
+                <button onclick="askQuestion('How do I open a Jupiter Savings Account?')">Open Jupiter Account</button>
+                <button onclick="askQuestion('What additional benefits do I get with the Savings Account?')">Savings Account Benefits</button>
+                <button onclick="askQuestion('How do I open a Salary account?')">Open Salary Account</button>
+                <button onclick="askQuestion('Which documents are required for opening a Salary account?')">Documents for Salary Account</button>
+                <button onclick="askQuestion('What is the initial deposit when you open a Salary Account?')">Initial Deposit Required</button>
+            </div>
+        </div>
+
+        <!-- Payments & UPI -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>💸 Payments & UPI</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('What payment methods does Jupiter support?')">Payment Methods</button>
+                <button onclick="askQuestion('Is there a transaction limit for UPI payments?')">UPI Transaction Limits</button>
+                <button onclick="askQuestion('Are there any charges for UPI transactions?')">UPI Transaction Charges</button>
+                <button onclick="askQuestion('What is UPI Lite and how does it work?')">UPI Lite Feature</button>
+                <button onclick="askQuestion('Can I send money to contacts using other UPI apps?')">Send to Other UPI Apps</button>
+                <button onclick="askQuestion('What types of bills can I pay on Jupiter?')">Bill Payment Types</button>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>💳 Cards</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('How can I apply for the Edge+ CSB Bank RuPay Credit Card?')">Apply for Edge+ Card</button>
+                <button onclick="askQuestion('What is the maximum cashback I can earn for each category?')">Maximum Cashback Limits</button>
+                <button onclick="askQuestion('Are there any fees for the Edge+ card?')">Edge+ Card Fees</button>
+                <button onclick="askQuestion('Can I use my Jupiter Debit Card outside India?')">International Debit Card Usage</button>
+                <button onclick="askQuestion('How to activate Edge Federal Bank Visa Credit Card?')">Activate Visa Card</button>
+                <button onclick="askQuestion('Is Edge Federal Bank Visa Credit Card lifetime free?')">Lifetime Free Card</button>
+            </div>
+        </div>
+
+        <!-- Rewards & Jewels -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>💎 Rewards & Jewels</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('Do I earn Jewels for making payments?')">Earn Jewels on Payments</button>
+                <button onclick="askQuestion('How do I earn Jewels on Jupiter?')">How to Earn Jewels</button>
+                <button onclick="askQuestion('What can I redeem Jewels for?')">Redeem Jewels Options</button>
+                <button onclick="askQuestion('How fast can I redeem Jewels on Jupiter?')">Instant Jewels Redemption</button>
+                <button onclick="askQuestion('Do the earned Jewels expire?')">Jewels Expiry Policy</button>
+                <button onclick="askQuestion('Do I earn Jewels on International payments?')">International Payment Rewards</button>
+            </div>
+        </div>
+
+        <!-- Investments -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>📈 Investments</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('What investment options are available on Jupiter?')">Investment Options</button>
+                <button onclick="askQuestion('What is Magic Spends and how does it work?')">Magic Spends Feature</button>
+                <button onclick="askQuestion('Can I invest using my Jupiter account?')">Invest with Jupiter</button>
+                <button onclick="askQuestion('What is Digital Gold on Jupiter?')">Digital Gold Investment</button>
+                <button onclick="askQuestion('Can I start investing in Gold with just ₹10?')">₹10 Gold Investment</button>
+                <button onclick="askQuestion('How do No-Penalty SIPs work on Jupiter?')">No-Penalty SIPs</button>
+            </div>
+        </div>
+
+        <!-- Loans -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>💰 Loans</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('What types of loans can I get on Jupiter?')">Available Loan Types</button>
+                <button onclick="askQuestion('What are the interest rates applicable on loans with Jupiter?')">Loan Interest Rates</button>
+                <button onclick="askQuestion('What is a loan against mutual funds?')">Loan Against Mutual Funds</button>
+                <button onclick="askQuestion('Who can apply for a Personal Loan on Jupiter?')">Personal Loan Eligibility</button>
+                <button onclick="askQuestion('What is Mini-Loan?')">About Mini-Loan</button>
+                <button onclick="askQuestion('Will I get reminders for my EMI payments?')">EMI Payment Reminders</button>
+            </div>
+        </div>
+
+        <!-- Money Management -->
+        <div class="category-item">
+            <div class="category-header" onclick="toggleCategory(this)">
+                <span>📊 Money Management</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            <div class="category-content">
+                <button onclick="askQuestion('What can I do in the Money tab on Jupiter?')">Money Tab Features</button>
+                <button onclick="askQuestion('How does Jupiter categorize my spending?')">Spending Categories</button>
+                <button onclick="askQuestion('Can I set Budgets in the Money tab?')">Set Monthly Budgets</button>
+                <button onclick="askQuestion('What is Account Aggregator and how does it work?')">Account Aggregator</button>
+                <button onclick="askQuestion('What is Net Worth in Jupiter and how is it calculated?')">Net Worth Tracker</button>
+                <button onclick="askQuestion('Can I track my credit card expenses in the Money tab?')">Track Credit Card Expenses</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message system">
+                    <div class="message-content">
+                        <div class="welcome-message">
+                            <h3>👋 Welcome to Jupiter!</h3>
+                            <p>I'm here to help you with any questions about Jupiter's services. Choose a category from the sidebar or ask me anything!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <form class="chat-input-form" onsubmit="sendMessage(event)">
+                    <input type="text" id="user-input" placeholder="Ask me anything about Jupiter..." required>
+                    <button type="submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleCategory(header) {
+    const categoryItem = header.parentElement;
+    const wasActive = categoryItem.classList.contains('active');
+    
+    // Close all categories
+    document.querySelectorAll('.category-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Open clicked category if it wasn't active
+    if (!wasActive) {
+        categoryItem.classList.add('active');
+    }
+}
+
+function formatMessage(text) {
+    if (text.includes("•")) {
+        const parts = text.split("•");
+        let formattedText = parts[0];
+        if (parts.length > 1) {
+            formattedText += '<ul class="response-list">';
+            for (let i = 1; i < parts.length; i++) {
+                if (parts[i].trim()) {
+                    formattedText += `<li>${parts[i].trim()}</li>`;
+                }
+            }
+            formattedText += '</ul>';
+        }
+        return formattedText;
+    }
+    return text;
+}
+
+function addSuggestions(suggestions) {
+    if (!suggestions || suggestions.length === 0) return;
+    
+    const suggestionsDiv = document.createElement('div');
+    suggestionsDiv.className = 'suggestions';
+    suggestionsDiv.innerHTML = '<p>You might also want to know:</p>';
+    
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.className = 'suggestion-buttons';
+    
+    suggestions.forEach(suggestion => {
+        const btn = document.createElement('button');
+        btn.className = 'suggestion-btn';
+        btn.innerHTML = `<span>${suggestion}</span>`;
+        btn.onclick = () => askQuestion(suggestion);
+        buttonsContainer.appendChild(btn);
+    });
+    
+    suggestionsDiv.appendChild(buttonsContainer);
+    document.getElementById('chat-messages').appendChild(suggestionsDiv);
+}
+
+function askQuestion(question) {
+    document.getElementById('user-input').value = question;
+    document.querySelector('.chat-input-form').dispatchEvent(new Event('submit'));
+}
+
+function sendMessage(event) {
+    event.preventDefault();
+    
+    const input = document.getElementById('user-input');
+    const messages = document.getElementById('chat-messages');
+    
+    // Add user message
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user';
+    userMessage.innerHTML = `<div class="message-content">${input.value}</div>`;
+    messages.appendChild(userMessage);
+    
+    // Add loading message
+    const loadingMessage = document.createElement('div');
+    loadingMessage.className = 'message system loading';
+    loadingMessage.innerHTML = `
+        <div class="message-content">
+            <div class="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    `;
+    messages.appendChild(loadingMessage);
+    
+    // Scroll to bottom
+    messages.scrollTop = messages.scrollHeight;
+    
+    // Send request to server
+    fetch('/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            question: input.value
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Remove loading message
+        messages.removeChild(loadingMessage);
+        
+        // Add bot response
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message system';
+        botMessage.innerHTML = `<div class="message-content">${formatMessage(data.response)}</div>`;
+        messages.appendChild(botMessage);
+        
+        // Add suggestions if any
+        if (data.suggestions) {
+            addSuggestions(data.suggestions);
+        }
+        
+        // Clear input and scroll
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        loadingMessage.innerHTML = '<div class="message-content error">Sorry, something went wrong. Please try again.</div>';
+    });
+}
+</script>
+{% endblock %}
