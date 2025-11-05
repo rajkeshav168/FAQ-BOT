@@ -1,0 +1,23 @@
+# Core dependencies
+flask
+pandas
+numpy
+torch
+sentence-transformers
+transformers
+scikit-learn
+
+# Scraping dependencies
+beautifulsoup4
+requests
+selenium
+webdriver-manager
+
+# NLP and utilities
+nltk
+python-dotenv
+
+# Optional for notebook demo
+jupyter
+matplotlib
+seaborn
